@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Global from './Global'
 import axios from 'axios'
+import DetallesDoctor from './DetallesDoctor'
 
 export default class Doctores extends Component {
 
     state={
-        doctores:[]
+        doctores:[],
+        doctorSeleccionado: -1
     }
 
     loadDoctores=()=>{
@@ -17,6 +19,13 @@ export default class Doctores extends Component {
             })
             
         })
+    }
+
+    mostrarDetalle=(id)=>{
+        this.setState({
+            doctorSeleccionado: id
+        })
+        
     }
 
     componentDidMount=()=>{
@@ -38,9 +47,7 @@ export default class Doctores extends Component {
             <thead>
                 <tr>
                     <th>Apellido</th>
-                    <th>Especialidad</th>
-                    <th>Salario</th>
-                    <th>Id hospital</th>
+                    <th>Detalles</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,14 +55,17 @@ export default class Doctores extends Component {
                     this.state.doctores.map((doctor, index)=>{
                         return (<tr key={index}>
                             <td>{doctor.apellido}</td>
-                            <td>{doctor.especialidad}</td>
-                            <td>{doctor.salario}</td>
-                            <td>{doctor.idHospital}</td>
+                            <td><button onClick={()=>{this.mostrarDetalle(doctor.idDoctor)}} className='btn btn-outline-dark'>Mostrar detalles</button></td>
                         </tr>)
                     })
                 }
             </tbody>
         </table>
+
+        {
+            this.state.doctorSeleccionado != -1 &&
+            (<DetallesDoctor idDoctor={this.state.idDoctor}/>)
+        }
     
       </div>
     )
