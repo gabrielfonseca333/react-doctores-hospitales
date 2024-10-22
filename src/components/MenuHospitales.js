@@ -31,9 +31,7 @@ export default class MenuHospitales extends Component {
           aria-label="Third navbar example"
         >
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              Hospitales
-            </a>
+            <img style={{width:"50px"}} src="https://tse4.mm.bing.net/th/id/OIP.jzVRbNlUQiRUCQUDoC9jRgHaHa?rs=1&pid=ImgDetMain"/>
             <button
               className="navbar-toggler"
               type="button"
@@ -49,25 +47,21 @@ export default class MenuHospitales extends Component {
             <div className="collapse navbar-collapse" id="navbarsExample03">
               <ul className="navbar-nav me-auto mb-2 mb-sm-0">
                 <li className="nav-item">
-                  <NavLink className="nav-link active" aria-current="page" to="/">
+                  <NavLink className="nav-link" aria-current="page" to="/">
                     Home
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Link
-                  </a>
+                  <NavLink className="nav-link" to="/create" >
+                    New Hospital
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className="nav-link disabled"
-                    href="#"
-                    tabindex="-1"
-                    aria-disabled="true"
-                  >
-                    Disabled
-                  </a>
+                  <NavLink className="nav-link" to="/hospitales" >
+                    Hospitales
+                  </NavLink>
                 </li>
+                
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown-toggle"
