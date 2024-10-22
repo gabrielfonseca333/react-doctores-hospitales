@@ -64,7 +64,7 @@ export default class Doctores extends Component {
 
         {
             this.state.doctorSeleccionado != -1 &&
-            (<DetallesDoctor idDoctor={this.state.idDoctor}/>)
+            (<DetallesDoctor iddoctor={this.state.doctorSeleccionado}/>)
         }
     
       </div>
